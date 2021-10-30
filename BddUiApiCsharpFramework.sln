@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApi", "RestApi\RestApi.csproj", "{6391B37A-7099-4EFF-9065-8010020DB372}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumUi", "SeleniumUi\SeleniumUi.csproj", "{FAF0FDB9-0AEC-4F6A-A6EF-68314B0D5EE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumUi", "SeleniumUi\SeleniumUi.csproj", "{FAF0FDB9-0AEC-4F6A-A6EF-68314B0D5EE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

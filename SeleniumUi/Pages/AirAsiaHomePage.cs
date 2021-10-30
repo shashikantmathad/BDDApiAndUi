@@ -43,23 +43,36 @@ namespace SeleniumUi.Pages
 
         IWebElement BtnFlights => driver.FindElement(By.XPath("//IMG[@class='flight-search-icon']"));
         IWebElement TxtFromCity => driver.FindElement(By.XPath("//DIV[@class='flight-search-source-code'][text()='BLR']/following-sibling::DIV"));
-        IWebElement TxtToCity => driver.FindElement(By.XPath("////DIV[@class='flight-search-source-code'][text()='Fly to']/following-sibling::DIV"));
+        IWebElement TxtToCity => driver.FindElement(By.XPath("//DIV[@class='flight-search-source-code'][text()='Fly to']/following-sibling::DIV"));
+        //IWebElement TxtSelectCity => driver.FindElement(By.XPath("//*[@id='basic - url']"));
 
+        IWebElement TxtSelectCity => driver.FindElement(By.XPath("//DIV[@class='flight-search-source-code'][text()='BLR']"));
 
         public void EnterDetailsAndSearchFlights()
         {
-            TxtFromCity.SendKeys("Goa");
-            TxtFromCity.SendKeys(Keys.Enter);
-            TxtToCity.SendKeys("Bengaluru");
-            TxtToCity.SendKeys(Keys.Enter);
+
+            //TxtFromCity.Click();
+            //TxtSelectCity.SendKeys("Mumbai");
+            //String TxtFromCityName = "Mumbai, India";
+            //driver.FindElement(By.XPath("//p[contains(text(),'" + TxtFromCityName + "')]")).Click();
+
+            //TxtFromCity.SendKeys(Keys.Enter);
+            //TxtToCity.SendKeys("Bengaluru");
+
+            //TxtToCity.Click();
+            TxtToCity.SendKeys("Delhi");
+            //TxtSelectCity.SendKeys("Delhi");
+            String TxtToCityName = "Delhi, India";
+            driver.FindElement(By.XPath("//p[contains(text(),'" + TxtToCityName + "')]")).Click();
+            Thread.Sleep(1000);
             BtnFlights.Click();
         }
 
-        IWebElement BtnLoginSignUp => driver.FindElement(By.XPath("//p[contains(text()'Login')]"));
+        IWebElement BtnLoginSignUp => driver.FindElement(By.XPath("//p[contains(text(),'Login')]"));
         IWebElement TxtMobileNum => driver.FindElement(By.XPath("//input[@id='mobile-input-sso']"));
         IWebElement ElePopupHeader => driver.FindElement(By.XPath("//span[contains(text(),'Please enter the confirmation code')]"));
         IWebElement EleResendCodeLink => driver.FindElement(By.XPath("//span[contains(text(),'Resend Code')]"));
-        IWebElement BtnContinue => driver.FindElement(By.XPath("//button[contains(text()'Continue')]"));
+        IWebElement BtnContinue => driver.FindElement(By.XPath("//button[contains(text(),'Continue')]"));
         public void ClickOnLoginBtn()
         {
             BtnLoginSignUp.Click();
@@ -69,6 +82,7 @@ namespace SeleniumUi.Pages
         public void EnterMobileNum(String IntMobileNum)
         {
             TxtMobileNum.SendKeys(IntMobileNum);
+            BtnContinue.Click();
         }
 
 
