@@ -43,7 +43,9 @@ namespace SeleniumUi.Pages
 
         IWebElement BtnFlights => driver.FindElement(By.XPath("//IMG[@class='flight-search-icon']"));
         IWebElement TxtFromCity => driver.FindElement(By.XPath("//DIV[@class='flight-search-source-code'][text()='BLR']/following-sibling::DIV"));
-        IWebElement TxtToCity => driver.FindElement(By.XPath("//DIV[@class='flight-search-source-code'][text()='Fly to']/following-sibling::DIV"));
+       // IWebElement TxtToCity => driver.FindElement(By.XPath("//DIV[@class='flight-search-source-code'][text()='Fly to']/following-sibling::DIV"));
+        IWebElement TxtToCity => driver.FindElement(By.XPath("//div[normalize-space()='Fly to']"));
+
         //IWebElement TxtSelectCity => driver.FindElement(By.XPath("//*[@id='basic - url']"));
 
         IWebElement TxtSelectCity => driver.FindElement(By.XPath("//DIV[@class='flight-search-source-code'][text()='BLR']"));

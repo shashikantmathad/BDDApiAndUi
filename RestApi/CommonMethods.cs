@@ -22,5 +22,15 @@ namespace RestApi
             request.AddJsonBody(requestBody);
             return request;
         }
+
+        //public IRestResponse GetResponse()
+        //{
+        //    IRestResponse response = client.Execute(CreateRequest);
+        //    statuscode = response.StatusCode;
+        //    Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Created));
+        //    return response;
+        //}
+
+
     }
 }

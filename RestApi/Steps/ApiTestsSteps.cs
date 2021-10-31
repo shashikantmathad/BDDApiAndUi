@@ -1,7 +1,10 @@
 ﻿using Newtonsoft.Json;
+using NUnit.Framework;
 using RestApi.Model;
 using RestSharp;
+using RestSharp.Serialization.Json;
 using System.IO;
+using System.Net;
 using System.Net.Http;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -9,11 +12,11 @@ using TechTalk.SpecFlow.Assist;
 namespace RestApi.Steps
 {
     [Binding]
-    public sealed class CalculatorStepDefinitions
+    public sealed class ApiTestsSteps
     {
         private RestClient client;
         private RestRequest request;
-        private string baseURl= "https://reqres.in/";
+        private string baseURl = "https://reqres.in/";
         private CommonMethods commonobj = new CommonMethods();
 
         [Given(@"i use the endpoint (.*)")]
@@ -32,7 +35,8 @@ namespace RestApi.Steps
         [When(@"i send the request")]
         public void WhenISendTheRequest()
         {
-            IRestResponse response = client.Execute(request);
+           client.Execute(request);
+
         }
 
         [When(@"i create the request")]
@@ -44,6 +48,23 @@ namespace RestApi.Steps
             request = commonobj.CreateRequest(Method.POST, requestbody);
         }
 
+        [Then(@"the respose is successful")]
+        public void ThenTheResposeIsSuccessful()
+        {
+            //statuscode = response.StatusCode;
+            //var code = (int)statuscode;
+            //Assert.AreEqual(201, code);
+            IRestResponse response = client.Execute(request);
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Created));
+            //Assert.That(response.ContentType, Is.EqualTo("application/json"));
+ 
+            Users users = new JsonDeserializer().Deserialize<Users>(response);
+            // assert
+            Assert.That(users.name, Is.EqualTo("morpheus"));
+            Assert.That(users.job, Is.EqualTo("leader"));
+            // var usercontent = Handlecontent.Getcontent<Createuserres>(response);
+
+        }
 
 
 

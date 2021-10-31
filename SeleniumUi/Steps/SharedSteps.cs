@@ -32,6 +32,9 @@ namespace SeleniumUi.Steps
                 methods.WebdriverExplicitWait(30);
                 Assert.True(true, "User has navigated to home page");
                 Debug.WriteLine("User has navigated to home page");
+                //IWebElement alertButton = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath(button_xpath)));
+                //alertButton.Click();
+
             }
             catch (Exception e)
             {
