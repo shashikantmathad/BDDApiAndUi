@@ -7,9 +7,11 @@ This Repository Consists of 2 Projects :
 
 1.RestApi
 Built with RestSharp And Specflow
+Using this APIs can be tested
 
 2.SeleniumUi
 Built with Selenium , Nunit And Specflow with Reporting feature using Extent Report
+Using this Web Applications can be tested
 
 
 Only for Owner Reference > Local Folder Path : D:\git\PracticeFW
